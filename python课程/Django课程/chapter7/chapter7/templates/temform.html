@@ -1,0 +1,6 @@
+﻿<form action="/getdata/" method="POST">
+    {% csrf_token %}
+    <label for="data">请输入数据: </label>
+    <input id="data" type="text" name="data" value="{{current_data}}">
+    <input type="submit" value="提交">
+</form>

@@ -1,0 +1,21 @@
+﻿<!--chapter7\chapter7\templates\temajax.html-->
+<!DOCTYPE html>
+<html>
+<head><script src="/static/jquery-3.4.1.min.js"></script></head>
+<body>
+    <form action="" method="post">
+        请输入姓名: <input type="text" id="name" name="name">
+    </form>
+    <span id="result"></span>
+    <script>
+        $(document).ready(function () {
+            $('input').keyup(function () {//在输入数据时，从服务器获取匹配的用户信息
+                var a = $("#name").val();
+                $.get("/getinfo/", { 'name': a }, function (ret) {
+                    $('#result').html(ret)//将响应结果添加到网页
+                })
+            });
+        });
+    </script>
+</body>
+</html>

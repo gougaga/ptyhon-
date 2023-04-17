@@ -1,0 +1,8 @@
+﻿使用表单集
+<form action="/formset/" method="POST">
+    {% csrf_token %}
+    <table>
+        {{formset}}
+    </table>
+    <input type="submit" value="提交">
+</form>

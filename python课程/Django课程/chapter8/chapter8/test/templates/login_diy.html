@@ -1,0 +1,11 @@
+﻿<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        <tr><td align="right">用户名：</td><td>
+            <input type="text" name="username" value="{{username}}" /></td></tr>
+        <tr><td align="right">密码：</td><td>
+            <input type="password" name="password" value="" /></td></tr>
+    </table> 
+    <input type="submit" value="提交">
+</form>
+<span style="color:red">{{news}}</span>

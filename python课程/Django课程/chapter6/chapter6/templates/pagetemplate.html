@@ -1,0 +1,29 @@
+﻿<center>
+    <b>学生成绩表</b>
+    {% if scores %}
+    <table border="1">
+        <tr><td>id</td><td>考号</td><td>姓名</td><td>语文</td><td>数学</td><td>英语</td></tr>
+        {% for s in scores %}
+        <tr style="background-color:{% cycle 'white' 'lavender' %}">
+            <td>{{s.id}}</td>
+            <td>{{s.kh}}</td>
+            <td>{{s.xm}}</td>
+            <td>{{s.yw}}</td>
+            <td>{{s.sx}}</td>
+            <td>{{s.yy}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% if scores.has_previous %}
+    <a href="?page=1">|&lt;第一页</a>
+    <a href="?page={{ scores.previous_page_number }}"> 前一页</a>
+    {% endif %}
+    Page {{ scores.number }} of {{ scores.paginator.num_pages }}
+    {% if scores.has_next %}
+    <a href="?page={{ scores.next_page_number }}">下一页</a>
+    <a href="?page={{ scores.paginator.num_pages }}">最末页&gt;|</a>
+    {% endif %}
+    {%else%}
+    未提供成绩数据！
+    {%endif%}
+</center>

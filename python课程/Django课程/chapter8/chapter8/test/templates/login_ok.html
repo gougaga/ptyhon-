@@ -1,0 +1,17 @@
+﻿{% if user.is_authenticated %}
+    登录成功，欢迎：{{ user.username }}，登录时间：{{ user.last_login }}<br>
+    <p><a href="{% url 'password_change' %}">修改密码</a></p>
+    {% if perms.test %}
+        你拥有访问应用test的下列权限：
+<ul>
+    {% for a in user.user_permissions.all %}
+    <li>{{a.name}},{{a.codename}}</li>
+    {% endfor %}
+</ul>
+<p><a href="{% url 'logout2' %}">注销登录？</a></p>
+    {% else %}
+<p>你还没有访问应用的任何权限！</p>
+    {% endif %}
+{% else %}
+    <p>你还未登录，<a href="{% url 'login' %}">请登录</a></p>
+{% endif %}

@@ -1,0 +1,26 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<style>
+.helptext {color:blue;}
+.errorlist {color: red;}
+.inputfocus {border-style:solid;
+    border-color:red;}
+</style>
+<script>
+$(function () {
+    $("input,textarea").focus(function () {
+        $(this).addClass("inputfocus");
+    });
+    $("input,textarea").blur(function () {
+        $(this).removeClass("inputfocus");
+    });
+})
+</script>
+<form action="/media/" method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken" value="uqeHtWArUsVTZXZNyo8efWc0vhQRDPr9xYpD4D3JVW09jdGpKfTH81V5FGRwJO2p">
+    <table><p><label for="id_name">姓名:</label> <textarea name="name" cols="30" rows="2" maxlength="8" required id="id_name">
+署到</textarea> <span class="helptext">姓名为中英文字符串</span></p>
+<ul class="errorlist"><li>年龄不能小于20！</li></ul>
+<p><label for="id_age">年龄:</label> <input type="number" name="age" value="13" required id="id_age"> <span class="helptext">年龄为[20,50]以内的整数</span></p></table>
+    <input type="submit" value="提交">
+</form>
+<hr>表单数据有错

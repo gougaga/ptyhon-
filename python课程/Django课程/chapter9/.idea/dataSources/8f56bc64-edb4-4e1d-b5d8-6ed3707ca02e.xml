@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="slnx">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
+    <root id="1">
+      <ServerVersion>3.31.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="FileScannerCache"/>
+    <table id="7" parent="2" name="FileSystemData"/>
+    <table id="8" parent="2" name="FileSystemEntity"/>
+    <table id="9" parent="2" name="FileSystemReference"/>
+    <table id="10" parent="2" name="ProviderEntity"/>
+    <table id="11" parent="2" name="Setting"/>
+    <table id="12" parent="2" name="SymbolDefinition"/>
+    <table id="13" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="14" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <view id="15" parent="2" name="FullPathEntities">
+      <SourceTextLength>726</SourceTextLength>
+    </view>
+    <column id="16" parent="6" name="FileScannerCacheId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="6" name="FileSystemEntityId">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="6" name="ProviderId">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="6" name="Type">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="6" name="Timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <index id="21" parent="6" name="FileScannerCache_FileSystemEntityId">
+      <ColNames>FileSystemEntityId</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="22" parent="6">
+      <ColNames>FileScannerCacheId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="6">
+      <ColNames>FileSystemEntityId</ColNames>
+      <RefTableName>FileSystemEntity</RefTableName>
+      <RefColNames>FileSystemEntityId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="24" parent="6">
+      <ColNames>ProviderId</ColNames>
+      <RefTableName>ProviderEntity</RefTableName>
+      <RefColNames>ProviderId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="25" parent="7" name="FileSystemDataId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="7" name="FileSystemEntityId">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="7" name="ProviderId">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="7" name="Type">
+      <Position>4</Position>
+      <DataType>NVARCHAR(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="29" parent="7" name="Name">
+      <Position>5</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="30" parent="7" name="Value">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="31" parent="7" name="Target">
+      <Position>7</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="32" parent="7" name="Context">
+      <Position>8</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+    </column>
+    <index id="33" parent="7" name="FileSystemData_FileSystemEntityId_Type">
+      <ColNames>FileSystemEntityId
+Type</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="34" parent="7">
+      <ColNames>FileSystemDataId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="35" parent="7">
+      <ColNames>FileSystemEntityId</ColNames>
+      <RefTableName>FileSystemEntity</RefTableName>
+      <RefColNames>FileSystemEntityId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="36" parent="7">
+      <ColNames>ProviderId</ColNames>
+      <RefTableName>ProviderEntity</RefTableName>
+      <RefColNames>ProviderId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="37" parent="8" name="FileSystemEntityId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="8" name="Name">
+      <Position>2</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="39" parent="8" name="ParentFileSystemEntityId">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="40" parent="8" name="IsFile">
+      <Position>4</Position>
+      <DataType>BIT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="8" name="LastObserved">
+      <Position>5</Position>
+      <DataType>DATETIME|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp</DefaultExpression>
+    </column>
+    <index id="42" parent="8" name="FileSystemEntity_Parent_Name">
+      <ColNames>Name
+ParentFileSystemEntityId</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="43" parent="8" name="FileSystemEntity_Name_Index">
+      <ColNames>Name</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="44" parent="8">
+      <ColNames>FileSystemEntityId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="8">
+      <ColNames>ParentFileSystemEntityId</ColNames>
+      <RefTableName>FileSystemEntity</RefTableName>
+      <RefColNames>FileSystemEntityId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="46" parent="9" name="FileSystemReferenceEntityId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="9" name="ProviderId">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="9" name="DependantFileId">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="9" name="ReferenceFileId">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="50" parent="9" name="ReferenceFilePath">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="51" parent="9" name="Target">
+      <Position>6</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="52" parent="9" name="Context">
+      <Position>7</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="53" parent="9" name="Type">
+      <Position>8</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="54" parent="9">
+      <ColNames>FileSystemReferenceEntityId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="9">
+      <ColNames>ProviderId</ColNames>
+      <RefTableName>ProviderEntity</RefTableName>
+      <RefColNames>ProviderId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="56" parent="9">
+      <ColNames>DependantFileId</ColNames>
+      <RefTableName>FileSystemEntity</RefTableName>
+      <RefColNames>FileSystemEntityId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="57" parent="9">
+      <ColNames>ReferenceFileId</ColNames>
+      <RefTableName>FileSystemEntity</RefTableName>
+      <RefColNames>FileSystemEntityId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="58" parent="10" name="ProviderId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="10" name="ProviderType">
+      <Position>2</Position>
+      <DataType>NVARCHAR(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="60" parent="10" name="ProviderVersion">
+      <Position>3</Position>
+      <DataType>NVARCHAR(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <index id="61" parent="10" name="ProviderType_Type">
+      <ColNames>ProviderType
+ProviderVersion</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="10">
+      <ColNames>ProviderId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="11" name="SettingId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="11" name="Name">
+      <Position>2</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="65" parent="11" name="Value">
+      <Position>3</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+    </column>
+    <index id="66" parent="11" name="Setting_Name_Index">
+      <ColNames>Name</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="67" parent="11">
+      <ColNames>SettingId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="68" parent="12" name="SymbolDefinitionId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="69" parent="12" name="ProviderId">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="12" name="Name">
+      <Position>3</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="71" parent="12" name="FullyQualifiedName">
+      <Position>4</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+    </column>
+    <column id="72" parent="12" name="Kind">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="12" name="Accessibility">
+      <Position>6</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="12" name="DefiningFileId">
+      <Position>7</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="12" name="LocationRow">
+      <Position>8</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="12" name="LocationColumn">
+      <Position>9</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="77" parent="12" name="SymbolDefinition_Name_Index">
+      <ColNames>Name</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="78" parent="12" name="SymbolDefinition_DefiningFileId_Index">
+      <ColNames>DefiningFileId</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="79" parent="12">
+      <ColNames>SymbolDefinitionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="12">
+      <ColNames>ProviderId</ColNames>
+      <RefTableName>ProviderEntity</RefTableName>
+      <RefColNames>ProviderId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="81" parent="12">
+      <ColNames>DefiningFileId</ColNames>
+      <RefTableName>FileSystemEntity</RefTableName>
+      <RefColNames>FileSystemEntityId</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="82" parent="13" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="83" parent="13" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="84" parent="13" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="85" parent="13" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="86" parent="13" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="87" parent="14" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="88" parent="14" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="89" parent="15" name="FileSystemEntityId">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="90" parent="15" name="Name">
+      <Position>2</Position>
+      <DataType>NVARCHAR(255)|0s</DataType>
+    </column>
+    <column id="91" parent="15" name="ParentFileSystemEntityId">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="92" parent="15" name="IsFile">
+      <Position>4</Position>
+      <DataType>BIT|0s</DataType>
+    </column>
+    <column id="93" parent="15" name="LastObserved">
+      <Position>5</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <column id="94" parent="15" name="FullPath">
+      <Position>6</Position>
+    </column>
+  </database-model>
+</dataSource>

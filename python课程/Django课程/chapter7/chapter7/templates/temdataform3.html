@@ -1,0 +1,24 @@
+﻿表格样式渲染的表单：
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="提交">
+</form>
+<hr>
+段落样式渲染的表单：
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="提交">
+</form>
+<hr>
+列表样式渲染的表单：
+<form action="" method="POST">
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input type="submit" value="提交">
+</form>
